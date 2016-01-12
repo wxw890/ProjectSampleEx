@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- 공지사항 (옛 기본) 관련 been -->
+<bean id="boardService" class="com.hta.board.service.BoardServiceImpl"> 
+	<!--<property name="jdbcTemplate" ref="jdbcTemplate"></property>--><!-- setJdbcTemplate()함수 즉, name = jdbcTemplage에 ref=jdbcTemplate을 주입한다. -->
+</bean>															<!-- jdbcTemplate은 applicationContext.xml에서 bean에서 인스턴스를 생성해줬다. -->
+
+<bean class="com.hta.board.controller.ListController"><!--인스턴스 생성, DefaultAnnotationHandlerMapping을 이용 -->
+	<property name="boardService" ref="boardService"></property><!--ListController에 setBoardService함수에 boardService(=dao)을 주입한다.  -->
+</bean>
+
+<bean class="com.hta.board.controller.WriteController"><!--인스턴스 생성, DefaultAnnotationHandlerMapping을 이용 -->
+	<property name="boardService" ref="boardService"></property><!--WriteController에 setBoardService함수에 boardService(=dao)을 주입한다.  -->
+</bean>
+
+<bean class="com.hta.board.controller.ReadController">
+	<property name="boardService" ref="boardService"></property>
+</bean>
+
+<bean class="com.hta.board.controller.UpdateController">
+	<property name="boardService" ref="boardService"></property>
+</bean>
+
+<bean class="com.hta.board.controller.DeleteController">
+	<property name="boardService" ref="boardService"></property>
+</bean>
+
+<bean class="com.hta.board.controller.ReplyController">
+	<property name="boardService" ref="boardService"></property>
+</bean>
+
+
+
+
+
+<!-- 로그인 및 회원가입 관련 been -->
+<bean id="memberService" class="com.hta.member.service.MemberServiceImpl">
+</bean>
+
+<bean class="com.hta.member.controller.RegisterController"><!-- 여길 틀려서 고생했다 ㅜㅜㅜㅜㅜ -->
+	<property name="memberService" ref="memberService"></property>
+</bean>
+
+
+<bean class="com.hta.member.controller.MainController"></bean>
+
+<bean class="com.hta.member.controller.LoginController">
+	<property name="memberService" ref="memberService"></property>
+</bean>
+
+
+<bean class="com.hta.member.controller.LogoutController"></bean>
+
+<bean class="com.hta.member.controller.LoginChangePwController">
+	<property name="memberService" ref="memberService"></property>
+</bean>
+
+</beans>
