@@ -7,7 +7,7 @@
 </head>
 <body>
 <h2>글쓰기 페이지</h2>
-<form action="write.board" method="post">
+<form action="write.board2" method="post">
 	제목:<input type="text" name="b_title"/><br/><br/>
 	내용:<input type="5" cols="50" name="b_content"></textarea><br/><br/>
 	<input type="submit" value="저장"/>

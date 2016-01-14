@@ -39,7 +39,27 @@ Modernizr.load({
 		}
 	}
 </script>
-<c:set var="email" value="${email}"/>
+<script>
+	function fnTest1(email){//로그인 한 상태에서 게시판 접근할수게 해주는 소스코드
+		if(email==null){
+			alert("로그인을 하세요!!")
+			location.href="index";
+		}else if(email!=null){
+			location.href="list.board1";
+		}
+	}
+</script>
+<script>
+	function fnTest2(email){//로그인 한 상태에서 게시판 접근할수게 해주는 소스코드
+		if(email==null){
+			alert("로그인을 하세요!!")
+			location.href="index";
+		}else if(email!=null){
+			location.href="list.board2";
+		}
+	}
+</script>
+<c:set var="email" value="${email}"/><!--로그인 컨트롤에서 session으로 넘긴 email값을 변수 email로 저장한다.-->
 
 
 
@@ -64,7 +84,7 @@ Modernizr.load({
         </ul>
       </div>
      
-     <c:if test="${name==null}">
+    <c:if test="${name==null}">
 	<span><a href="register.member">회원가입</a></span>
 	<span><a href="login.member">로그인   </a></span>
 	</c:if>
@@ -107,8 +127,8 @@ Modernizr.load({
         <li><a href="contact.jsp">게시판</a>
         <ul class="dropdown">
         <li><a href="list.board" onclick="fnTest(${email})">공지사항</a></li>
-        <li><a href="list.board1" onclick="fnTest(${email1})">자유게시판</a></li>
-        <li><a href="list.board2" onclick="fnTest(${email2})">Q&A</a></li>
+        <li><a href="list.board1" onclick="fnTest1(${email})">자유게시판</a></li>
+        <li><a href="list.board2" onclick="fnTest2(${email})">Q&A</a></li>
         </ul>
         </li>
         <li><a href="blog.jsp">학원소개</a></li>

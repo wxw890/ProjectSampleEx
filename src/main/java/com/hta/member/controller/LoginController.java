@@ -45,9 +45,10 @@ public class LoginController {
 			Member result = memberService.authenticate(loginCommand.getEmail(), loginCommand.getPassword());//로그인할 이메일,비번 인증
 			System.out.println("로그인:"+loginCommand.getEmail());
 			if(result != null){ // 값이 null아닌경우
-				session.setAttribute("name", result.getMember_name()); //이름을 seesion에 저장 누가 로그인 성공했는지 이름을 출력하기위해서...
+				session.setAttribute("name", result.getMember_name()); //이름을 seesion에 저장 누가 로그인 성공했는지 이름을 출력하기위해서...세션으로 넘겨서 index에서 사용하게위해서 EL태크로
 				session.setAttribute("email", result.getMember_email());//패스워드 변경을 위해 이때 세션값에 email을 저장해야한다. email은 mybatis에서 비번 변경 업데이트의 기준이 되기때문에 필요함다.
 				System.out.println("로그인시 메일출력:"+result.getMember_email());
+				System.out.println("로그인시 이름출력:"+result.getMember_name());
 			}
 		}
 		catch(IdPasswordNotMachingException err){

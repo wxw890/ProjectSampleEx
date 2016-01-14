@@ -43,6 +43,8 @@ public class RegisterController {
 			return "stap2";
 		}
 	}
+	//이메일 중복확인 아직 미완성
+	/*
 	@RequestMapping(value="/stap2", method=RequestMethod.POST)
 	public ModelAndView emailCheck(@ModelAttribute Member dto, HttpServletResponse resp, HttpServletRequest req) throws IOException{
 		ModelAndView mav = new ModelAndView("stap2");
@@ -62,7 +64,7 @@ public class RegisterController {
 		
 		return mav;
 		
-	}
+	}*/
 	/*
 	@RequestMapping("/stap3") //BundleViewResolver사용, 위처럼 파라미터를 4개를 받아와도 되지만 파라미터가 많은 관계로 dto형태로 가져오는게 편하다.
 	public ModelAndView handleStep3(@ModelAttribute RegisterRequest dto){//@ModelAttribute는 dto등의 객체를 주로 받아올때 사용

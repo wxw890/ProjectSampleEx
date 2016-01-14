@@ -13,8 +13,8 @@
   		select * from MEMBER where member_email=#{member_email}
   	</select>
   	
-  	<select id="update2" parameterType="Member">
+  <select id="update6" parameterType="Member">
   		update MEMBER set member_password=#{member_password} where member_email=#{member_email}
-  	</select>
+  </select>
   	
   </mapper>

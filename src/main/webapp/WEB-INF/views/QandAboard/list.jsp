@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="mybatis.freeBoardManager"%>
+<%@page import="mybatis.QandABoardManager"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.List" %>
-<%@page import="com.hta.freeboard.repository.BoardDto" %>
+<%@page import="com.hta.QandAboard.repository.BoardDto" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
@@ -64,10 +64,11 @@ if(reload != null){
 
 List list;//우선 리스트 생성
 if(keyWord==null){ //keyWord를 입력하지 않았을때, 즉, 처음이거나 입력하지 않을때 null일면 
-	list = freeBoardManager.getList();//list에 DB에 저장된 리스트들을 넣는다.
+	list = QandABoardManager.getList();//list에 DB에 저장된 리스트들을 넣는다.
+	
 }
 else{//keyWord가 입력되었다는 뜻
-	list = freeBoardManager.findKeyword(dto1);//그땐 list에 덮어씨운다. 찾는 DB(findKeyword())를 통해 찾은 list를 덮어씨운다.
+	list = QandABoardManager.findKeyword(dto1);//그땐 list에 덮어씨운다. 찾는 DB(findKeyword())를 통해 찾은 list를 덮어씨운다.
 }
 
 totalRecord = list.size();//게시판 전체 글수
@@ -119,7 +120,7 @@ function check(){
           <li><a href="#">d</a></li>
         </ul>
       </div>
-	    <c:if test="${name==null}">
+	      <c:if test="${name==null}">
 		<span><a href="register.member">회원가입</a></span>
 		<span><a href="login.member">로그인   </a></span>
 		</c:if>
@@ -160,7 +161,7 @@ function check(){
             <li><a href="#">See all &rarr;</a></li>
           </ul>
         </li>
-        	<li><a href="contact.jsp">게시판</a>
+        <li><a href="contact.jsp">게시판</a>
 		        <ul class="dropdown">
 			        <li><a href="list.board" onclick="fnTest(${email})">공지사항</a></li>
 			        <li><a href="list.board1" onclick="fnTest1(${email})">자유게시판</a></li>
@@ -189,7 +190,7 @@ function check(){
       <div class="blog-container">
         <div class="row">
           <center><br>
-			<h2>자유게시판</h2>
+			<h2>Q&A게시판</h2>
 			
 			<table align=center border=0 width=80%>
 			<tr>
@@ -232,7 +233,7 @@ function check(){
 						<!-- 실제 출력하는 부분 -->	
 						<tr>
 							<td><%=dto.getB_num()%></td>
-							<td><a href="read.board1?b_seq=<%=dto.getB_num()%>"><%=dto.getB_title()%></a></td>
+							<td><a href="read.board2?b_seq=<%=dto.getB_num()%>"><%=dto.getB_title()%></a></td>
 							<td><%=dto.getB_writer()%></td>
 							<td><%=dto.getB_date() %></td>
 							<td><%=dto.getB_count() %></td>
@@ -253,7 +254,7 @@ function check(){
 			<tr>
 				<td align="left">Go to Page 
 					<%if(nowBlock > 0){ %>
-						<a href="list.board1?nowBlock=<%=nowBlock-1%>&nowPage=<%=pagePerBlock*(nowBlock-1)%>">이전 <%=pagePerBlock %>개</a>&nbsp;&nbsp;&nbsp;
+						<a href="list.board2?nowBlock=<%=nowBlock-1%>&nowPage=<%=pagePerBlock*(nowBlock-1)%>">이전 <%=pagePerBlock %>개</a>&nbsp;&nbsp;&nbsp;
 					<%} %>
 					
 					<%
@@ -262,24 +263,24 @@ function check(){
 								break;
 							}
 					%>
-							<a href="list.board1?nowPage=<%=(nowBlock * pagePerBlock)+i%>&nowBlock=<%=nowBlock%>"><%=(nowBlock * pagePerBlock) + i+1%></a>&nbsp;&nbsp;&nbsp;
+							<a href="list.board2?nowPage=<%=(nowBlock * pagePerBlock)+i%>&nowBlock=<%=nowBlock%>"><%=(nowBlock * pagePerBlock) + i+1%></a>&nbsp;&nbsp;&nbsp;
 					<%
 						}
 					%>
 					&nbsp;&nbsp;&nbsp;
 					<%if(totalBlock > nowBlock+1){ %>
-						<a href="list.board1?nowBlock=<%=nowBlock+1%>&nowPage=<%=pagePerBlock*(nowBlock+1)%>">다음<%=pagePerBlock %>개</a>
+						<a href="list.board2?nowBlock=<%=nowBlock+1%>&nowPage=<%=pagePerBlock*(nowBlock+1)%>">다음<%=pagePerBlock %>개</a>
 					<%} %>
 				</td>
 				<td align=right>
-					<a href="write.board1">[글쓰기]</a>
-					<a href="javascript:list.board1">[처음으로]</a>
+					<a href="write.board2">[글쓰기]</a>
+					<a href="javascript:list.board2">[처음으로]</a>
 				</td>
 			</tr>
 			</table>
 		<!-- 찾기 기능 -->	
 			<BR>
-<form action="list.board1?page=0" name="search" method="GET">
+<form action="list.board2?page=0" name="search" method="GET">
 	<table border=0 width=527 align=center cellpadding=4 cellspacing=0>
 	<tr>
 		<td align=center valign=bottom>

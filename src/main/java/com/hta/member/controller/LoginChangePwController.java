@@ -46,6 +46,7 @@ public class LoginChangePwController {
 		out.flush();
 		return "loginchage";
 	}
+	System.out.print("1 으아!!!여기까지는 오냐?>?");
 	return "loginChangeSuc";
   }
 }

@@ -36,10 +36,11 @@ public class MemberManager {
 		return dto; //Member 즉 dto로 넘겨줘야한다.
 	}
 	
-	public static void update2(Member dto){
-		System.out.println("2.어디까지 오는걸까? : " + dto.getMember_email());
+	public static void update5(Member dto){
+		System.out.println("2.어디까지 오는걸까?(이메일) : " + dto.getMember_email());
+		System.out.println("2.어디까지 오는걸까?(비번) : " + dto.getMember_password());
 		SqlSession session = sqlFactory.openSession();
-		session.update("update2", dto);//,memberMapper.xml에 id가 update2인 메서드에 dto를 param으로 넘겨준다.
+		session.update("update6", dto);//memberMapper.xml에 id가 update2인 메서드에 dto를 param으로 넘겨준다.
 		session.commit();
 	}
 }

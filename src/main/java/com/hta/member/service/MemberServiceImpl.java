@@ -2,8 +2,6 @@ package com.hta.member.service;
 
 import java.sql.SQLException;
 
-import org.springframework.util.AlternativeJdkIdGenerator;
-
 import com.hta.member.repository.Member;
 import com.hta.exception.IdPasswordNotMachingException;
 
@@ -58,11 +56,10 @@ public class MemberServiceImpl implements MemberService {
 			System.out.println("새 비밀번호와 새 비밀번호 확인이 안맞을때");
 			throw new IdPasswordNotMachingException();
 		}
-		
 		if(dto.matchPassword(passwordcomf)){//비번이 맞으면
 			dto.setMember_password(newpassword);//새로운 비번 입력한다.
-			System.out.println("변경된 비번:"+dto.getMember_password());
-			MemberManager.update2(dto);
+			System.out.println("****변경된 비번:"+dto.getMember_password());
+			MemberManager.update5(dto);
 		}
 		
 		

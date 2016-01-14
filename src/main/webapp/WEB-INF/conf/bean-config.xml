@@ -35,6 +35,68 @@
 
 
 
+<!-- 자유게시판 관련 been -->
+<bean id="boardService1" class="com.hta.freeboard.service.BoardServiceImpl"> 
+	<!--<property name="jdbcTemplate" ref="jdbcTemplate"></property>--><!-- setJdbcTemplate()함수 즉, name = jdbcTemplage에 ref=jdbcTemplate을 주입한다. -->
+</bean>															<!-- jdbcTemplate은 applicationContext.xml에서 bean에서 인스턴스를 생성해줬다. -->
+
+<bean class="com.hta.freeboard.controller.ListController"><!--인스턴스 생성, DefaultAnnotationHandlerMapping을 이용 -->
+	<property name="boardService" ref="boardService1"></property><!--ListController에 setBoardService함수에 boardService(=dao)을 주입한다.  -->
+</bean>
+
+<bean class="com.hta.freeboard.controller.WriteController"><!--인스턴스 생성, DefaultAnnotationHandlerMapping을 이용 -->
+	<property name="boardService" ref="boardService1"></property><!--WriteController에 setBoardService함수에 boardService(=dao)을 주입한다.  -->
+</bean>
+
+<bean class="com.hta.freeboard.controller.ReadController">
+	<property name="boardService" ref="boardService1"></property>
+</bean>
+
+<bean class="com.hta.freeboard.controller.UpdateController">
+	<property name="boardService" ref="boardService1"></property>
+</bean>
+
+<bean class="com.hta.freeboard.controller.DeleteController">
+	<property name="boardService" ref="boardService1"></property>
+</bean>
+
+<bean class="com.hta.freeboard.controller.ReplyController">
+	<property name="boardService" ref="boardService1"></property>
+</bean>
+
+
+
+
+<!-- Q&A게시판 관련 been -->
+<bean id="boardService2" class="com.hta.QandAboard.service.BoardServiceImpl"> 
+	<!--<property name="jdbcTemplate" ref="jdbcTemplate"></property>--><!-- setJdbcTemplate()함수 즉, name = jdbcTemplage에 ref=jdbcTemplate을 주입한다. -->
+</bean>															<!-- jdbcTemplate은 applicationContext.xml에서 bean에서 인스턴스를 생성해줬다. -->
+
+<bean class="com.hta.QandAboard.controller.ListController"><!--인스턴스 생성, DefaultAnnotationHandlerMapping을 이용 -->
+	<property name="boardService" ref="boardService2"></property><!--ListController에 setBoardService함수에 boardService(=dao)을 주입한다.  -->
+</bean>
+
+<bean class="com.hta.QandAboard.controller.WriteController"><!--인스턴스 생성, DefaultAnnotationHandlerMapping을 이용 -->
+	<property name="boardService" ref="boardService2"></property><!--WriteController에 setBoardService함수에 boardService(=dao)을 주입한다.  -->
+</bean>
+
+<bean class="com.hta.QandAboard.controller.ReadController">
+	<property name="boardService" ref="boardService2"></property>
+</bean>
+
+<bean class="com.hta.QandAboard.controller.UpdateController">
+	<property name="boardService" ref="boardService2"></property>
+</bean>
+
+<bean class="com.hta.QandAboard.controller.DeleteController">
+	<property name="boardService" ref="boardService2"></property>
+</bean>
+
+<bean class="com.hta.QandAboard.controller.ReplyController">
+	<property name="boardService" ref="boardService2"></property>
+</bean>
+
+
 
 
 <!-- 로그인 및 회원가입 관련 been -->

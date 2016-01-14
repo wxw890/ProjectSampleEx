@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<title>Forte | About</title>
+<title>Forte | Blog</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/foundation.min.css" type="text/css">
@@ -26,7 +27,7 @@ Modernizr.load({
 <body>
 <div class="call top-call-to-action">
   <div class="row">
-    <div class="large-12 columns loginstyles">
+    <div class="large-12 columns">
       <div class="social-icons">
         <ul>
           <li><a href="#">t</a></li>
@@ -36,17 +37,7 @@ Modernizr.load({
           <li><a href="#">d</a></li>
         </ul>
       </div>
-     
-     <c:if test="${name==null}">
-   <span><a href="register.member">회원가입</a></span>
-   <span><a href="login.member">로그인   </a></span>
-   </c:if>
-   
-   <c:if test="${name!=null}">
-   ${name}님 환영합니다.
-   <span><a href="logout.member">로그아웃</a></span>
-   <span><a href="loginchange.member">비밀번호 변경하기</a></span>
-   </c:if> </div>
+      <span>1800809000</span> </div>
   </div>
 </div>
 <div class="header">
@@ -60,7 +51,7 @@ Modernizr.load({
   <div class="row">
     <div class="large-12 twelve columns hide-for-small">
       <ul class="sf-menu">
-        
+        <li><a href="index.jsp">Home</a></li>
         <li><a href="about.jsp">About Us</a></li>
         <li><a href="gallery.jsp">Gallery</a></li>
         <li><a href="contact.jsp">Contact Us</a>
@@ -77,19 +68,7 @@ Modernizr.load({
             <li><a href="#">See all &rarr;</a></li>
           </ul>
         </li>
-        <li><a href="contact.jsp">게시판</a>
-		        <ul class="dropdown">
-			        <li><a href="list.board" onclick="fnTest(${email})">공지사항</a></li>
-			        <li><a href="list.board1" onclick="fnTest1(${email})">자유게시판</a></li>
-			        <li><a href="list.board2" onclick="fnTest2(${email})">Q&A</a></li>
-		        </ul>
-	    </li>
-        <li><a href="blog.jsp">학원소개</a></li>
-        <li><a href="#">스터디좌석 예약</a>
-           <ul class="dropdown">
-              <li><a href="#">스터디좌석 예약하기</a></li>
-              <li><a href="#">예약 확인</a></li>
-           </ul>
+        <li><a href="blog.jsp">Blog</a></li>
       </ul>
     </div>
     <div class="large-12 twelve columns show-for-small">
@@ -105,60 +84,32 @@ Modernizr.load({
     </div>
   </div>
 </div>
-
-<!-- 이부분이 약관동의 부분 -->
- <h2 align="center">가입 약관 동의</h2>
-   <div class="orange_box">
-      
-      
-      
-      
-      <h2>회원정보입력</h2>
-		<form action="stap3" method="POST">
-		<p>
-			<label>메일<br/>
-				<input type="text" name="member_email" id="member_email">
-			</label>
-			<input type="button" value="중복확인" onclick="sendAjax()"/>
-		</p>
-		<p>
-			<label>이름<br/>
-				<input type="text" name="member_name" id="member_name">
-			</label>
-		</p>
-		<p>
-			<label>주소<br/>
-				<input type="text" name="member_address" id="member_address">
-			</label>
-		</p>
-		<p>
-			<label>핸드폰 번호<br/>
-				<input type="text" name="member_phonenumber" id="member_phonenumber">
-			</label>
-		</p>
-		<p>
-			<label>비밀번호<br/>
-				<input type="password" name="member_password" id="member_password">
-			</label>
-		</p>
-		<p>
-			<label>비밀번호 확인<br/>
-				<input type="password" name="confirmpassword" id="confirmpassword">
-			</label>
-		</p>
-		<input type="submit" value="가입 완료"/>
-      
-      </form>
-      
-      
-      
-      
-      
-      
-   </div>
-   
-
-
+<div class="content-sub-page">
+  <div class="row">
+    <div class="large-12 twelve columns">
+      <div class="blog-container">
+        <div class="row">
+          <div class="large-7 eight columns">
+            <h1 class="page-title">Blog Posts</h1>
+            <p>Egestas aliquam vel ultrices integer, ut sit pellentesque, et montes, turpis phasellus mauris porta parturient platea pulvinar risus, lectus? Pid! Elementum sociis nunc sit! Dolor in eu ut placerat pellentesque, platea est risus etiam, dolor! Nec, penatibus odio scelerisque elementum pulvinar urna, dis nec vel nunc ut mid! In eros magna vel urna a platea proin, in tortor ultricies, et egestas amet, pellentesque ac, sit est ac integer ut cum porttitor penatibus, sed purus odio! Mauris nec? Quis, facilisis, tempor magna in vel lacus, cras risus, vel montes penatibus ultrices, aenean penatibus, nec lectus lacus penatibus? Egestas duis. Diam phasellus, integer in etiam sociis porta turpis proin in? Ridiculus! Turpis mauris placerat. Tincidunt in scelerisque diam mus egestas? Augue mauris. Augue etiam. Porta? Cum sed platea, nunc elit ultricies phasellus auctor augue aliquam tempor. Amet velit, adipiscing sed ac dictumst penatibus aliquam, parturient, purus. Enim nec augue mauris elementum cras.</p>
+            <p>Dolor amet amet lectus phasellus, dolor aliquam. Nascetur arcu urna placerat, mid, elit adipiscing parturient nec ac dolor amet. Velit? Augue enim nisi phasellus velit, sit nunc elit natoque lacus, mus et ac vut mattis? Eu pulvinar pulvinar et, in habitasse, lundium, ridiculus? Arcu, ultrices, amet augue, ac pulvinar urna cum, turpis pid, eu. Ac porttitor, ut aliquam in? Ridiculus ac. Urna augue pid tortor porttitor vut, amet, enim ut turpis, sociis dignissim, augue sit porta scelerisque, in lectus aliquam vut habitasse ac? Rhoncus, placerat! Eros nec tincidunt ultrices scelerisque lorem. Sed diam mauris diam egestas? Amet in, mauris, nunc sociis scelerisque, sed eu, et mus, pulvinar, velit et facilisis lacus a aliquam non ut, sit porta? Diam ultricies? Placerat ut auctor urna adipiscing sit, quis rhoncus pulvinar integer sed proin? Porta penatibus magna, elementum, lorem nisi, elit adipiscing, mauris, porta egestas pid, vut sed arcu tristique, rhoncus sit.</p>
+          </div>
+          <div class="large-4 four columns sidebar">
+            <h1 class="page-title services">Our Services</h1>
+            <ul>
+              <li class="bullet"><a href="#">Purus magnis augue adipiscing mid magna</a></li>
+              <li class="bullet"><a href="#">Amet dignissim natoque, dignissim lacus</a></li>
+              <li class="bullet"><a href="#">Purus magnis augue adipiscing mid magna</a></li>
+              <li class="bullet"><a href="#">Amet dignissim natoque, dignissim lacus</a></li>
+              <li class="bullet"><a href="#">Purus magnis augue adipiscing mid magna</a></li>
+              <li class="bullet"><a href="#">Amet dignissim natoque, dignissim lacus</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="footer">
   <div class="row">
     <div class="large-12 twelve columns">
@@ -238,8 +189,6 @@ Modernizr.load({
 <script src="js/jquery.min.js"></script>
 <script src="js/superfish.js"></script>
 <script src="js/hoverIntent.js"></script>
-<script src="js/slider/jquery.flexslider.js"></script>
-<script src="js/slider/jquery.testimonialslider.js"></script>
 <script>
 Modernizr.load({
     test: Modernizr.placeholder,
@@ -259,29 +208,7 @@ $(document).ready(function () {
         },
         delay: 400
     });
-    $('.flexslider').flexslider({
-        animation: "slide"
-    });
-    $('.testimonialslider').testimonialslider({
-        animation: "fade",
-        animationLoop: false,
-        itemMargin: 50,
-        itemMargin: 0,
-        maxItems: 1,
-        after: function (slider) {
-            var currentSlide = parseInt(slider.currentSlide);
-            var currentSlide = parseInt(slider.currentSlide);
-            var currentSlideHeight = $('.testimonialslider ul.slides').find('li').eq(currentSlide).css('height');
-            $('.testimonialslider ul.slides').animate({
-                height: currentSlideHeight
-            }, 100);
-        }
-    });
 });
 </script>
 </body>
 </html>
-
-
-
-

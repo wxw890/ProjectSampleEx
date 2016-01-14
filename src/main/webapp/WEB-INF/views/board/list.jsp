@@ -119,7 +119,18 @@ function check(){
           <li><a href="#">d</a></li>
         </ul>
       </div>
-      <span><a href="register.member">회원가입</a></span> </div>
+      
+	    <c:if test="${name==null}">
+		<span><a href="register.member">회원가입</a></span>
+		<span><a href="login.member">로그인   </a></span>
+		</c:if>
+		
+		<c:if test="${name!=null}">
+		${name}님 환영합니다.
+		<span><a href="logout.member">로그아웃</a></span>
+		<span><a href="loginchange.member">비밀번호 변경하기</a></span>
+		</c:if>  
+	</div>
   </div>
 </div>
 <div class="header">
@@ -150,8 +161,14 @@ function check(){
             <li><a href="#">See all &rarr;</a></li>
           </ul>
         </li>
-        <li><a href="blog.jsp">Blog</a></li>
-        <li><a href="list.board">게시판</a></li>
+	        <li><a href="contact.jsp">게시판</a>
+		        <ul class="dropdown">
+			        <li><a href="list.board" onclick="fnTest(${email})">공지사항</a></li>
+			        <li><a href="list.board1" onclick="fnTest1(${email})">자유게시판</a></li>
+			        <li><a href="list.board2" onclick="fnTest2(${email})">Q&A</a></li>
+		        </ul>
+	        </li>
+	        <li><a href="blog.jsp">학원소개</a></li>
       </ul>
     </div>
     <div class="large-12 twelve columns show-for-small">
@@ -173,7 +190,7 @@ function check(){
       <div class="blog-container">
         <div class="row">
           <center><br>
-			<h2>JSP Board</h2>
+			<h2>공지사항</h2>
 			
 			<table align=center border=0 width=80%>
 			<tr>

@@ -9,6 +9,8 @@
   <typeAliases><!-- 별명을 지어주는 것 -->
   	<typeAlias type="com.hta.board.repository.BoardDto" alias="BoardDto"/>
   	<typeAlias type="com.hta.member.repository.Member" alias="Member"/>
+  	<typeAlias type="com.hta.freeboard.repository.BoardDto" alias="BoardDto1"/>
+  	<typeAlias type="com.hta.QandAboard.repository.BoardDto" alias="BoardDto2"/>
   </typeAliases>
   
   <environments default="development"><!-- 여기서 바꿀때 release를 사용할지 development를 사용할지 선택하면 된다. -->
@@ -38,6 +40,8 @@
   <mappers><!-- 실제 DB작업을 위한 설정파일을 연결하는 부분이다. -->
     <mapper resource="mybatis/boardMapper.xml"/><!-- 패키지이름/xml파일 이름 -->
     <mapper resource="mybatis/memberMapper.xml"/><!-- 패키지이름/xml파일 이름 -->
+    <mapper resource="mybatis/freeboardMapper.xml"/><!-- 패키지이름/xml파일 이름 -->
+    <mapper resource="mybatis/QandAboardMapper.xml"/><!-- 패키지이름/xml파일 이름 -->
   </mappers>
   
 </configuration>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.List" %>
-<%@page import="com.hta.freeboard.repository.BoardDto" %>
+<%@page import="com.hta.QandAboard.repository.BoardDto" %>
 <!DOCTYPE html>
 <%! 
 	public String getParam(HttpServletRequest req, String pName){
