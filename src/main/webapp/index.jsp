@@ -59,6 +59,7 @@ Modernizr.load({
 		}
 	}
 </script>
+
 <c:set var="email" value="${email}"/><!--로그인 컨트롤에서 session으로 넘긴 email값을 변수 email로 저장한다.-->
 
 
@@ -70,6 +71,7 @@ Modernizr.load({
 <body>
 <ul>
 	<li><a href="list.board" onclick="fnTest(${email})">게시판</a></li>
+	<li><a href="reservation.study">스터디룸 예약하기</a></li>
 </ul>
 <div class="call top-call-to-action">
   <div class="row">

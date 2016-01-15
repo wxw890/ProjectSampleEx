@@ -121,4 +121,23 @@
 	<property name="memberService" ref="memberService"></property>
 </bean>
 
+
+
+
+
+<!-- 스터디 룸 관련 been -->
+<bean id="studyroomService" class="com.hta.studyroom.service.StudyroomServiceImpl">
+</bean>															
+
+<bean class="com.hta.studyroom.controller.ReservationController">
+	<property name="studyroomService" ref="studyroomService"></property>
+</bean>
+
+<bean class="com.hta.studyroom.controller.DeleteReservationController">
+	<property name="studyroomService" ref="studyroomService"></property>
+</bean>
+
+<bean class="com.hta.studyroom.controller.SearchReservationController">
+	<property name="studyroomService" ref="studyroomService"></property>
+</bean>
 </beans>
