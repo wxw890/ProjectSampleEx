@@ -48,21 +48,21 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"
 	type="text/javascript"></script>
-<script type="text/javascript">
-	function fnBack() {
-		var answer = confirm("예약을 취소하시겠습니까?");
-		if (answer) {
-			alert("예약을 취소합니다.");
-			location.href = "reservation.delete";
-			history.back();
-		} else {
-			alert("예약을 진행합니다.");
-		}
-	}
-</script>
+
 <script>
 	function fnSearch(){
 		location.href = "reservation.search"
+	}
+</script>
+<script>
+	function fndelete(reservation_num){
+		var answer = confirm("예약을 정말로 삭제하시겠습니까?");
+		if(answer == true){
+			location.href = "reservation.delete?reservation_num="+reservation_num;
+		}
+		else{
+			location.href = "reservation.search"
+		}
 	}
 </script>
 
@@ -109,30 +109,20 @@
 	<div class="topmenu">
 		<div class="row">
 			<div class="large-12 twelve columns hide-for-small">
-				<ul class="sf-menu">
-
-					<li><a href="about.jsp">About Us</a></li>
-					<li><a href="gallery.jsp">Gallery</a></li>
-					<li><a href="contact.jsp">Contact Us</a>
-						<ul class="dropdown">
-							<li><a href="#">Dropdown Level 1a</a>
-								<ul>
-									<li><a href="#">Dropdown Level 2a</a></li>
-									<li><a href="#">Dropdown Level 2b</a></li>
-								</ul></li>
-							<li><a href="#">Dropdown Level 1b</a></li>
-							<li><a href="#">Dropdown Level 1c</a></li>
-							<li><a href="#">Dropdown Level 1d</a></li>
-							<li><a href="#">See all &rarr;</a></li>
-						</ul></li>
-					<li><a href="list.board">게시판</a></li>
-					<li><a href="blog.jsp">학원소개</a></li>
-					<li><a href="#">스터디좌석 예약</a>
-						<ul class="dropdown">
-							<li><a href="#">스터디좌석 예약하기</a></li>
-							<li><a href="#">예약 확인</a></li>
-						</ul>
-				</ul>
+				 <ul class="sf-menu">
+			        <li><a href="index.jsp">Home</a></li>
+			     
+			      
+			        <li><a href="reservation.study">스터디룸 예약하기</a></li>
+			        <li><a>게시판</a>
+			        <ul class="dropdown">
+				        <li><a href="list.board" onclick="fnTest(${email})">공지사항</a></li>
+				        <li><a href="list.board1" onclick="fnTest1(${email})">자유게시판</a></li>
+				        <li><a href="list.board2" onclick="fnTest2(${email})">Q&A</a></li>
+			        </ul>
+			        </li>
+			        <li><a href="blog.jsp">학원소개</a></li>
+      			</ul>
 			</div>
 			<div class="large-12 twelve columns show-for-small">
 				<form name="dropdown" action="#">
@@ -178,8 +168,6 @@
 	</tr>
 	
 	
-	
-		
 		
 		<form action="reservation2.study" method="post">
 			<input type="hidden" name="member_email" />
@@ -286,12 +274,35 @@
 					<br /> <input type="radio" name="table_num" value="12" />
 				</div>
 			</div>
+			
+			
+			
+<!-- 현재 예약 테이블 -->			
+<c:if test="${list5 != null}">			
+<table border="1">
+<tr>
+	<tr><td>번호</td><td>아이디</td><td>예약날짜</td>
+	<td>예약시간</td><td>예약테이블</td>
+</tr>
+<c:forEach var="dto5" items="${list5}">
+	<tr>
+		<td>${dto5.reservation_num}</td>
+		<td>${dto5.member_email}</td>
+		<td>${dto5.reservation_date}</td>
+		<td>${dto5.reservation_time }</td>
+		<td>${dto5.table_num}</td>
+		<td><input type="button" value="삭제" onclick="fndelete(${dto5.reservation_num})"/></td>
+	</tr>
+</c:forEach>
+</table>
+</c:if>			
+			
+			
+			
 
 
 			<div style="margin-top: 475px">
-				<button class="btn btn-danger" type="button" name="selectcancel"
-					value="cancle" onclick="fnBack()">예약취소</button>
-				<button class="btn btn-primary" type="button" name="selectSearch"
+				<button class="btn btn-danger" type="button" name="selectSearch"
 					value="cancle" onclick="fnSearch()">예약찾기</button>
 				<button class="btn btn-primary" type="submit" name="selectDay"
 					value="next">예약하기</button>

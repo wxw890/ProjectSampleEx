@@ -28,14 +28,14 @@ public class StudyroomServiceImpl implements StudyroomService {
 	//예약 쓰기 기능
 	public void resWrite(StudyroomDto studyroomdto) throws SQLException {
 		System.out.println("resWrite 임무 시작(같은거 있나 찾고있음)");
-		StudyroomDto dto = StudyroomManager.findBySameResurvation(studyroomdto);//이상하다... 찾고 결과가 
+		//StudyroomDto dto = StudyroomManager.findBySameResurvation(studyroomdto);//현재 예약을 확인하고 없으면 null을 반환해서 밑에 if문에 걸리게할 계획이다.
 		
 		System.out.println("resWrite 임무 시작(같은거 있나 찾음 완료)");
-		if(dto == null){
+		//if(dto == null){
 			System.out.println("resWrite 임무중(집어 넣을려고함)");	
 			StudyroomManager.resWrite(studyroomdto);//입력 부분
 			System.out.println("resWrite 임무중(집어 넣었음)");
-		}
+		//}
 		System.out.println("resWrite 임무완료후 종료(결국 같은거 찾아서 못집어넣음)");
 	}
 	//현재 예약 확인
@@ -48,17 +48,18 @@ public class StudyroomServiceImpl implements StudyroomService {
 			
 		return StudyroomManager.findByRes_num(reservation_num);	
 	}
-	/*	
+		
 	//예약 삭제 기능 - 차후 예약 취소쪽으로 생각
 	public void resDelete(int reservation_num) throws SQLException {
 		
 		StudyroomManager.resDelete(reservation_num);
-	}*/
+	}
 	
 	//회원의 예약 찾기
-	public List Searchreservation(){
-		
-		return StudyroomManager.searchReservation();
+	public List Searchreservation(String member_email){
+		List list = StudyroomManager.searchReservation(member_email);
+		System.out.println("서비스에서는 나오냐??"+list.get(0));
+		return list;
 	}
 
 }

@@ -57,6 +57,7 @@ public class ListController{
 					System.out.println("getList실행!!!!!!!!!");
 					list = boardService.getList();//getList()함수가 list 결과값을 가지고 온다.
 					mav.addObject("list", list);
+					
 				}
 				else{
 					System.out.println("findKeyword실행!!!!!!!!!");

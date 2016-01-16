@@ -58,31 +58,19 @@ Modernizr.load({
 <div class="topmenu">
   <div class="row">
     <div class="large-12 twelve columns hide-for-small">
-      <ul class="sf-menu">
-        
-        <li><a href="about.jsp">About Us</a></li>
-        <li><a href="gallery.jsp">Gallery</a></li>
-        <li><a href="contact.jsp">Contact Us</a>
-          <ul class="dropdown">
-            <li><a href="#">Dropdown Level 1a</a>
-              <ul>
-                <li><a href="#">Dropdown Level 2a</a></li>
-                <li><a href="#">Dropdown Level 2b</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown Level 1b</a></li>
-            <li><a href="#">Dropdown Level 1c</a></li>
-            <li><a href="#">Dropdown Level 1d</a></li>
-            <li><a href="#">See all &rarr;</a></li>
-          </ul>
+       <ul class="sf-menu">
+        <li><a href="index.jsp">Home</a></li>
+     
+      
+        <li><a href="reservation.study">스터디룸 예약하기</a></li>
+        <li><a>게시판</a>
+        <ul class="dropdown">
+	        <li><a href="list.board" onclick="fnTest(${email})">공지사항</a></li>
+	        <li><a href="list.board1" onclick="fnTest1(${email})">자유게시판</a></li>
+	        <li><a href="list.board2" onclick="fnTest2(${email})">Q&A</a></li>
+        </ul>
         </li>
-        <li><a href="list.board">게시판</a></li>
         <li><a href="blog.jsp">학원소개</a></li>
-        <li><a href="#">스터디좌석 예약</a>
-        	<ul class="dropdown">
-        		<li><a href="#">스터디좌석 예약하기</a></li>
-        		<li><a href="#">예약 확인</a></li>
-        	</ul>
       </ul>
     </div>
     <div class="large-12 twelve columns show-for-small">

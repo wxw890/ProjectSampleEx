@@ -36,7 +36,15 @@ public class StudyroomManager {
 		//즉, session.selectList("getList");는 dto 타입으로 DB에서 가져온 결과값을 가져온다. 거기에 reservation_list에 집어넣어서 StudyroomServiceImpl.java에서 getRoomResList()메서드를 불러 사용하면 끝이다.
 		return reservation_list;
 	}*/
-	
+	public static List searchReservation(String member_email){
+		List list = null;
+		SqlSession session = sqlFactory.openSession();//세션별로 sql 작업할수 있도록 열어놓는것
+		StudyroomDto dto = new StudyroomDto();
+		System.out.println("1매니져에서 dto는"+dto.getMember_email());
+		list = session.selectList("searchReservation", member_email);
+		System.out.println("2매니져에서 dto는"+list.get(0));
+		return list;
+	}
 	public static void resWrite(StudyroomDto studyroomdto){
 		System.out.println("<resWrite>");
 		System.out.println("Manager table num : "+ studyroomdto.getTable_num());
@@ -67,19 +75,12 @@ public class StudyroomManager {
 		StudyroomDto studyroomdto2 = session.selectOne("findBySameResurvation", studyroomdto);
 		return studyroomdto2;
 	}
-	/*
+	
 	public static void resDelete(int reservation_num){
 		SqlSession session = sqlFactory.openSession();
 		session.delete("resDelete", reservation_num);
 		session.commit();
-	}*/
-	public static List searchReservation(){
-		List list = null;
-		SqlSession session = sqlFactory.openSession();//세션별로 sql 작업할수 있도록 열어놓는것
-		StudyroomDto dto = new StudyroomDto();
-		System.out.println("매니져에서 dto는"+dto.getMember_email());
-		list = session.selectList("getList1");
-		return list;
 	}
+	
 	
 }

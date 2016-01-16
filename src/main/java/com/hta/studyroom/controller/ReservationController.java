@@ -113,14 +113,17 @@ public class ReservationController {
 				session.setAttribute("member_name", memberName);
 				studyroomdto.setMember_name(memberName);
 				
-			//StudyroomDto dto = studyroomService.findBySameResurvation(studyroomdto);
+			StudyroomDto dto = studyroomService.findBySameResurvation(studyroomdto);
 			if(nowyear.equals(year) && nowmonth<month){
 				//if(nowday<=sumday){
 					System.out.println("1. write 시~~~~~~~~작!!!");
 					//step1.jsp에서 전달받은 데이터를 스터디룸 좌석 예약 DB에 입력
-					studyroomService.resWrite(studyroomdto);
+					
 				//}
-				/*else{
+				if(dto == null){
+					studyroomService.resWrite(studyroomdto);
+				}
+				else{
 					System.out.println("1. mav2 시~~~~~~~~작!!!");
 					ModelAndView mav2 = new ModelAndView("/study_room/reservation/step1Error");
 					mav2.addObject("list", list);//List 형식으로 보낼때
@@ -130,7 +133,7 @@ public class ReservationController {
 					//mav2.addObject("day", sumday);//선택한 정확날짜
 					return mav2;
 					
-				}*/
+				}
 			}
 			else if(nowyear.equals(year) && nowmonth==month && nowday<=sumday){
 				System.out.println("2. write 시~~~~~~~~작!!!");

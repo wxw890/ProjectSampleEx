@@ -36,7 +36,7 @@ public class freeBoardManager {
 		System.out.println("매니져에서 dto는"+dto.getKeyField());
 		list = session.selectList("getList1");//selectList메서드 외에 delete 등 메서드가 더있다. getList는 boardMapper.xml에서 설정한 select의 id이다.
 											//즉, session.selectList("getList");는 dto 타입으로 DB에서 가져온 결과값을 가져온다. 거기에 list에 집어넣어서 BoardServiceImpl.java에서 getList()메서드를 불러 사용하면 끝이다.
-		
+		System.out.println("리스트 매니져값"+list.get(0));
 		return list;
 	}
 	

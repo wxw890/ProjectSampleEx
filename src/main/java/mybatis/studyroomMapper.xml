@@ -32,8 +32,8 @@
   	</select>
   	
   	
-  	<select id="searchReservation" resultType="StudyroomDto">
-  		select * from reservation order by reservation_num desc
+  	<select id="searchReservation" parameterType="String"  resultType="StudyroomDto">
+  		select * from reservation where member_email=#{member_email} order by reservation_num desc
   	</select>
   	
   	

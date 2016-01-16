@@ -42,7 +42,7 @@ public class UpdateController {
 				System.out.println("writeErrorMessage:"+ err);
 			}
 			System.out.println("아마도 되는듯");
-			return "redirect:list.board";//"/WEB-INF/views/board/list.jsp";//dB를 거치지 않고 가기때문에 입력한 결과값이 보지 않고 나온다.
+			return "redirect:list.board1";//"/WEB-INF/views/board/list.jsp";//dB를 거치지 않고 가기때문에 입력한 결과값이 보지 않고 나온다.
 																			//이것을 해결하기위해 redirect:를 사용한다. 마치 클라이언트가 다시 서버에 요청한것 처럼...결과를 준다.
 		}
 }
